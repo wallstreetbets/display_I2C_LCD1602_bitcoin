@@ -5,3 +5,8 @@ A script for the Sunfounder Display "I2C LCD1602" that updates the price of bitc
 Install the module Binance
 
 sudo pip3 --default-timeout=1000 install python-binance
+
+You'll need the account keys from Binance
+
+PUBLIC_API_KEY = ''
+PRIVATE_API_KEY = ''
