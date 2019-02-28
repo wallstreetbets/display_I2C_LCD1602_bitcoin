@@ -1,5 +1,6 @@
 import LCD1602
 import time
+from datetime import datetime
 from binance.client import Client
 from binance.websockets import BinanceSocketManager
 
@@ -9,12 +10,16 @@ PRIVATE_API_KEY = ''
 symbol = 'BTCUSDT'
 
 
-def kline_handle(msg):
+def process_message(msg):
     if msg['e'] == 'error':
         print("There's an error")
     else:
-        LCD1602.write(0, 0, msg['k']['s'])
-        LCD1602.write(0, 1, msg['k']['c'])
+        timestamp = msg['T'] / 1000
+        timestamp = datetime.fromtimestamp(timestamp).strftime('%m-%d')
+        line_one = symbol + "   " + timestamp
+        line_two = msg['p'][:-6]
+        LCD1602.write(0, 0, line_one)
+        LCD1602.write(0, 1, line_two)
         time.sleep(0.4)
 
 
@@ -22,7 +27,7 @@ def socket_conn():
     try:
         client = Client(PUBLIC_API_KEY, PRIVATE_API_KEY)
         bm = BinanceSocketManager(client)
-        bm.start_kline_socket(symbol, kline_handle, client.KLINE_INTERVAL_1MINUTE)
+        bm.start_aggtrade_socket(symbol, process_message)
         bm.start()
     except:
         print("Error - exiting...")
@@ -31,8 +36,19 @@ def socket_conn():
 def setup():
         LCD1602.init(0x27, 1)   # init(slave address, background light)
         LCD1602.write(0, 0, 'r/wallstreetbets')
-        LCD1602.write(1, 1, 'Presents')
+        LCD1602.write(1, 1, 'Presents...')
         time.sleep(3)
+        LCD1602.clear()
+        #LCD1602.clear()
+
+        
+def balance():
+        client = Client(PUBLIC_API_KEY, PRIVATE_API_KEY)
+        bm = BinanceSocketManager(client)
+        bal = client.get_asset_balance('BTC')['free']
+        LCD1602.write(0, 0, bal)
+        time.sleep(3)
+        LCD1602.clear()
 
 
 def destroy():
@@ -42,6 +58,7 @@ def destroy():
 if __name__ == "__main__":
         try:
                 setup()
+                balance()
                 while True:
                         socket_conn()
         except KeyboardInterrupt:
