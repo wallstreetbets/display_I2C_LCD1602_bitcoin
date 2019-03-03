@@ -20,17 +20,6 @@ def process_message(msg):
         line_two = msg['p'][:-6]
         LCD1602.write(0, 0, line_one)
         LCD1602.write(0, 1, line_two)
-        time.sleep(0.4)
-
-
-def socket_conn():
-    try:
-        client = Client(PUBLIC_API_KEY, PRIVATE_API_KEY)
-        bm = BinanceSocketManager(client)
-        bm.start_aggtrade_socket(symbol, process_message)
-        bm.start()
-    except:
-        print("Error - exiting...")
 
 
 def setup():
@@ -58,8 +47,12 @@ def destroy():
 if __name__ == "__main__":
         try:
                 setup()
+                print('Screen initialized...')
                 balance()
-                while True:
-                        socket_conn()
+                client = Client(PUBLIC_API_KEY, PRIVATE_API_KEY)
+                bm = BinanceSocketManager(client)
+                bm.start_aggtrade_socket(symbol, process_message)
+                bm.start()
+                print('Feed streaming :)')
         except KeyboardInterrupt:
                 destroy()
