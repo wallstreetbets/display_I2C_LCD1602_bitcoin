@@ -11,3 +11,7 @@ You'll need the account keys from Binance
 PUBLIC_API_KEY = ''
 
 PRIVATE_API_KEY = ''
+
+Run the script on terminal:
+
+python3 30_i2c_lcd1602.py
