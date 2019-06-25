@@ -9,4 +9,5 @@ sudo pip3 --default-timeout=1000 install python-binance
 You'll need the account keys from Binance
 
 PUBLIC_API_KEY = ''
+
 PRIVATE_API_KEY = ''
