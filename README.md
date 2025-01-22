@@ -43,10 +43,11 @@ git clone https://github.com/yourusername/raspberry-pi-btc-display.git
 cd raspberry-pi-btc-display
 
 ### Step 2: Set Up Environment
-Install the required Python libraries:
 
 python3 -m venv env
+
 source env/bin/activate
+
 pip install python-binance
 
 ### Step 3: Configure Binance API Keys
