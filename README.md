@@ -91,14 +91,17 @@ Press Ctrl + C to stop the application safely.
 
 ###  Troubleshooting
 Common Issues
+
 LCD Not Displaying Properly:
 
 Ensure correct wiring and I2C address configuration.
 Verify that the LCD is initialized in the app.py file with the correct address.
+
 WebSocket Errors:
 
 Check your Binance API key permissions.
 Verify internet connectivity.
+
 Dependency Errors:
 
 Run pip install -r requirements.txt to install missing dependencies.
