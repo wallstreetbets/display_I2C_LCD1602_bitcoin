@@ -16,4 +16,4 @@ Run the script on terminal:
 
 python3 30_i2c_lcd1602.py
 
-![Alt text](https://github.com/wallstreetbets/display_I2C_LCD1602_bitcoin](https://github.com/wallstreetbets/display_I2C_LCD1602_bitcoin/blob/master/20180108_132036.jpg)
+![Alt text](https://github.com/wallstreetbets/display_I2C_LCD1602_bitcoin/blob/master/20180108_132036.jpg)
