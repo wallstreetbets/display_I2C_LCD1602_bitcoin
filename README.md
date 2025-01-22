@@ -55,7 +55,8 @@ pip install python-binance
 - Generate your API keys (Public and Private).
 - Store the keys in a .env file in the project directory:
 
-  BINANCE_PUBLIC_API_KEY=your_public_key.
+  BINANCE_PUBLIC_API_KEY=your_public_key
+  
   BINANCE_PRIVATE_API_KEY=your_private_key.
 
 ### Step 4: Enable I2C on Raspberry Pi
