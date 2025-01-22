@@ -76,7 +76,7 @@ python3 app.py
 Stopping the Application
 Press Ctrl + C to stop the application safely.
 
-Project Structure
+### Project Structure
 
 ├── app.py            # Main application file
 
