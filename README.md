@@ -8,7 +8,7 @@ A Python-based project that uses Binance's WebSocket API to fetch real-time Bitc
 
 Here’s a snapshot of the project in action:
 
-<img src="https://github.com/wallstreetbets/display_I2C_LCD1602_bitcoin/blob/master/20180108_132036.jpg" alt="Alt text" width="400"/>
+<img src="https://github.com/wallstreetbets/display_I2C_LCD1602_bitcoin/blob/master/20180108_132036.jpg" alt="Alt text" width="500"/>
 
 
 ## Features
@@ -77,10 +77,13 @@ Stopping the Application
 Press Ctrl + C to stop the application safely.
 
 Project Structure
-plaintext
+
 ├── app.py            # Main application file
+
 ├── README.md         # Documentation
+
 ├── .env              # API keys (not included in the repository)
+
 └── requirements.txt  # Python dependencies
 
 
